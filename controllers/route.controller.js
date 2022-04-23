@@ -1,18 +1,15 @@
-import { Article } from '../views/Article.js';
+import { Home } from '../views/Home.js';
+import { Bookmarks } from '../views/Bookmarks.js';
+import { Saved } from '../views/Saved.js';
 
 const router = (function () {
    const outlet = document.querySelector('main');
 
    const routes = {
-      home: function (posts) {
-         console.log(posts);
-         return posts.map(function (post) {
-            return Article(post);
-         }).join(',');
-      },
-      bookmarks: '',
-      saved: '',
-   };
+         home: Home(outlet),
+         bookmarks: Bookmarks(),
+         saved: Saved()
+      };
 
 
    /**
@@ -48,10 +45,14 @@ const router = (function () {
       history.pushState({id: pathId}, `Newser | ${title}`, href);
    };
 
-   const loadPage = function (page) {
-      console.log(getLastSegment(getPath(page)));
-      console.log(routes[page]);
-      outlet.innerHTML = routes[page];
+   const loadPage = function (href) {
+      let pathSegment = getLastSegment(getPath(href));
+
+      if (pathSegment === '') {
+         pathSegment = 'home';
+      }
+
+      outlet.innerHTML = routes[pathSegment];
    };
 
    return Object.freeze({
