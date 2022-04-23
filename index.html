@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Newser | Your everyday news source</title>
+   <!-- 
+      I'm using type="module" here to gain the benefits of ES Modules:
+      1. Deferred until content is loaded by default
+      2. Strict mode by default
+      3. It's nice to split code into different files according to functionality!
+   -->
+   <script src="./script.js" type="module"></script>
+
+   <!-- Load Google font: Atkinson Hyperlegible -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet">
+
+   <!-- Bring in color variables -->
+   <link rel="stylesheet" href="./style/colors.css">
+
+   <!-- Regular old stylesheet link! -->
+   <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+   <header>
+      <div class="header-inner">
+         <a href="./" id="site-anchor">
+            <h1 id="brand-header" aria-label="Newser — Your everyday news source">N</h1>
+         </a>
+         <div class="header-control">
+            <div class="header-buttons">
+               <!-- 
+                  Adding a data attribute to these links to make them easy to intercept.
+                  This is how we'll implement routing behavior that overrides the default
+                  browser's link behavior.
+               -->
+               <a href="./bookmarks" data-route class="header-link">Bookmarks</a>
+               <a href="./saved" data-route class="header-link">Saved Searches</a>
+            </div>
+            <div id="search-control">
+               <input type="search" name="search" id="search-input" placeholder="Search">
+               <button class="header-button" id="search-button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="c">
+                     <path
+                        d="M11 2c4.968 0 9 4.032 9 9s-4.032 9-9 9-9-4.032-9-9 4.032-9 9-9zm0 16c3.867 0 7-3.133 7-7 0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7zm8.485.071l2.829 2.828-1.415 1.415-2.828-2.829 1.414-1.414z" />
+                  </svg>
+               </button>
+            </div>
+         </div>
+      </div>
+      <div class="page-control">
+         <button id="scheme-toggle" class="icon-button">
+         </button>
+      </div>
+   </header>
+   <!-- <aside id="sidebar">
+      <h3>Sidebar</h3>
+   </aside> -->
+   <main>
+      <!-- Articles will populate this space -->
+   </main>
+   <footer>
+      <h3>Footer</h3>
+   </footer>
+</body>
+
+</html>

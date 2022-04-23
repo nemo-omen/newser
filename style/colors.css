@@ -1,0 +1,113 @@
+/*
+   I take a bit of time to set up useful HSL color variables so I
+   can easily use shades of a base color for my own nefarious purposes
+   without having to think too much later -- I might not use all of them
+   but it takes the weight off in case I want to experiment
+*/
+
+:root {
+
+   /* base colors */
+   --dark: hsl(224, 26%, 25%);
+   --light: hsl(51, 100%, 97%);
+   --primary: hsl(197, 24%, 56%);
+   --accent: hsl(44, 100%, 50%);
+   --accent-secondary: hsl(354, 100%, 64%);
+   
+   /* 
+      now let's use HSL to set color scales for individual colors
+      colorname-0 = darkest, colorname-9 = lightest, colorname-5 = base
+   */
+   --dark-0: hsl(224, 26%, 0%);
+   --dark-1: hsl(224, 26%, 5%);
+   --dark-2: hsl(224, 26%, 10%);
+   --dark-3: hsl(224, 26%, 15%);
+   --dark-4: hsl(224, 26%, 20%);
+   --dark-5: var(--dark);
+   --dark-6: hsl(224, 26%, 30%);
+   --dark-7: hsl(224, 26%, 35%);
+   --dark-8: hsl(224, 26%, 40%);
+   --dark-9: hsl(224, 26%, 45%);
+   --dark-10: hsl(224, 26%, 50%);
+   --dark-11: hsl(224, 26%, 55%);
+   --dark-12: hsl(224, 26%, 60%);
+   --dark-13: hsl(224, 26%, 65%);
+   --dark-14: hsl(224, 26%, 71%);
+   --dark-15: hsl(224, 26%, 75%);
+   
+   --light-0: hsl(51, 100%, 52%);
+   --light-1: hsl(51, 100%, 57%);
+   --light-2: hsl(51, 100%, 62%);
+   --light-3: hsl(51, 100%, 67%);
+   --light-4: hsl(51, 100%, 72%);
+   --light-5: hsl(51, 100%, 77%);
+   --light-6: hsl(51, 100%, 82%);
+   --light-7: hsl(51, 100%, 87%);
+   --light-8: hsl(51, 100%, 92%);
+   --light-9: var(--light);
+
+   --primary-0: hsl(197, 24%, 31%);
+   --primary-1: hsl(197, 24%, 36%);
+   --primary-2: hsl(197, 24%, 41%);
+   --primary-3: hsl(197, 24%, 46%);
+   --primary-4: hsl(197, 24%, 51%);
+   --primary-5: var(--primary);
+   --primary-6: hsl(197, 24%, 61%);
+   --primary-7: hsl(197, 24%, 66%);
+   --primary-8: hsl(197, 24%, 71%);
+   --primary-9: hsl(197, 24%, 76%);
+   
+   --accent-0: hsl(44, 100%, 25%);
+   --accent-1: hsl(44, 100%, 30%);
+   --accent-2: hsl(44, 100%, 35%);
+   --accent-3: hsl(44, 100%, 40%);
+   --accent-4: hsl(44, 100%, 45%);
+   --accent-5: var(--accent);
+   --accent-6: hsl(44, 100%, 55%);
+   --accent-7: hsl(44, 100%, 60%);
+   --accent-8: hsl(44, 100%, 65%);
+   --accent-9: hsl(44, 100%, 70%);
+
+   --accent-secondary-0: hsl(354, 100%, 39%);
+   --accent-secondary-1: hsl(354, 100%, 44%);
+   --accent-secondary-2: hsl(354, 100%, 49%);
+   --accent-secondary-3: hsl(354, 100%, 54%);
+   --accent-secondary-4: hsl(354, 100%, 59%);
+   --accent-secondary-5: var(--accent-secondary);
+   --accent-secondary-6: hsl(354, 100%, 69%);
+   --accent-secondary-7: hsl(354, 100%, 74%);
+   --accent-secondary-8: hsl(354, 100%, 79%);
+   --accent-secondary-9: hsl(354, 100%, 84%);
+
+   /* 
+      Finally, set foreground, background, link, and hover colors.
+      This makes it much, much easier to create dark/light
+      mode, should readers have a preference.
+   */
+   --foreground: var(--dark-3);
+   --foreground-offset: var(--dark-10);
+   --background: var(--light);
+   --background-offset: var(--light-8);
+   --focus: var(--light-9);
+   --link: var(--dark-3);
+   --hover: var(--accent-secondary);
+}
+
+/* @media screen and (prefers-color-scheme: dark) {
+   :root {
+      --foreground: var(--light);
+      --background: var(--dark-3);
+      --background-offset: var(--dark-5);
+      --focus: var(--dark-4);
+      --link: var(--light);
+   }
+} */
+
+[data-scheme="dark"] {
+   --foreground: var(--light);
+   --foreground-offset: var(--dark-15);
+   --background: var(--dark-3);
+   --background-offset: var(--dark-5);
+   --focus: var(--dark-4);
+   --link: var(--light);
+}
