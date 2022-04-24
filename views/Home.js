@@ -1,13 +1,11 @@
 import { Article } from './Article.js';
-import { dummyData } from '../model.js';
 
-const Home = function (outlet) {
-   
-   dummyData.articles.forEach(function (post) {
-      outlet.innerHTML += Article(post);
-   });
+const Home = function (articles) {
+   if (articles === undefined) {
+      articles = [];
+   }
 
-   return dummyData.articles.map(function (article) {
+   return articles.map(function (article) {
       return Article(article);
    }).join('');
 };

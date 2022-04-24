@@ -58,7 +58,7 @@ h5 {
    transition: color 0.15s ease-out;
 }
 
-#site-anchor h1 {
+#site-anchor {
    font-size: 4rem;
    color: currentColor;
 }

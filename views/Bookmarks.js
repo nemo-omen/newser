@@ -1,4 +1,4 @@
-const Bookmarks = function () {
+const Bookmarks = function (bookmarks) {
    return `<h2>Bookmarks</h2>`;
 }
 

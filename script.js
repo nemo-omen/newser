@@ -1,17 +1,15 @@
 import { config } from './config.js';
 import { router } from './controllers/route.controller.js';
-
 import { scheme, getColorSchemeButton } from './controllers/scheme.controller.js';
+import { ArticleModel } from './models/articles.model.js';
 
-const main = document.querySelector('main');
 const colorScheme = scheme();
 const schemeToggleButton = document.querySelector('#scheme-toggle')
 
-// ArticleList('main', dummyData.articles);
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
    schemeToggleButton.innerHTML = getColorSchemeButton(colorScheme.getScheme());
-   router.loadPage(window.location.href);
+   router.loadPage(window.location.href, await ArticleModel());
 });
 
 document.addEventListener('click', function (event) {

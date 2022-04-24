@@ -1,4 +1,4 @@
-const Saved = function () {
+const Saved = function (terms) {
    return `<h2>Saved</h2>`;
 }
 

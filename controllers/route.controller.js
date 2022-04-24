@@ -6,9 +6,9 @@ const router = (function () {
    const outlet = document.querySelector('main');
 
    const routes = {
-         home: Home(outlet),
-         bookmarks: Bookmarks(),
-         saved: Saved()
+         home: async (options) => await Home(options),
+         bookmarks: (options) => Bookmarks(options),
+         saved: (options) => Saved(options)
       };
 
 
@@ -45,14 +45,14 @@ const router = (function () {
       history.pushState({id: pathId}, `Newser | ${title}`, href);
    };
 
-   const loadPage = function (href) {
+   const loadPage = async function (href, options) {
       let pathSegment = getLastSegment(getPath(href));
 
       if (pathSegment === '') {
          pathSegment = 'home';
       }
 
-      outlet.innerHTML = routes[pathSegment];
+      outlet.innerHTML = await routes[pathSegment](options);
    };
 
    return Object.freeze({
