@@ -2,6 +2,7 @@ import { config } from './config.js';
 import { router } from './controllers/route.controller.js';
 import { scheme, getColorSchemeButton } from './controllers/scheme.controller.js';
 import { ArticleModel } from './models/articles.model.js';
+import { SearchController } from './controllers/search.controller.js'
 
 const colorScheme = scheme();
 const schemeToggleButton = document.querySelector('#scheme-toggle')
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function () {
    router.loadPage(window.location.href, await ArticleModel());
 });
 
-document.addEventListener('click', function (event) {
+document.addEventListener('click', async function (event) {
    if (!event.target.matches('[data-route]')) {
       return;
    }
@@ -21,7 +22,7 @@ document.addEventListener('click', function (event) {
    event.preventDefault();
 
    // send the target element's href to the router
-   router.loadPage(event.target.href);
+   router.loadPage(event.target.href, await ArticleModel('San Angelo'));
 });
 
 schemeToggleButton.addEventListener('click', function () {

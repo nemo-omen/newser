@@ -109,6 +109,11 @@ a svg {
    fill: currentColor;
    fill-rule: evenodd;
    clip-rule: evenodd;
+   /* 
+      prevents svg from being returned as event.target
+      @see: https://schalkneethling.medium.com/preventing-svg-from-becoming-the-event-target-3e9c039dfdd0
+   */
+   pointer-events: none;
 }
 
 header {
@@ -160,7 +165,7 @@ header {
    font-size: 1.25rem;
 }
 
-#search-control {
+.search-control {
    display: grid;
    grid-template-columns: 1fr auto;
    font-size: 1.25rem;
@@ -172,12 +177,12 @@ header {
    outline: 1px solid transparent;
 }
 
-#search-control:focus-within {
+.search-control:focus-within {
    border-color: var(--dark-7);
    background-color: var(--focus);
 }
 
-#search-input {
+.search-input {
    transition: border-color 0.15s ease-out, background-color 0.15s ease-out;
    background: var(--background-offset);
    border: none;
@@ -185,7 +190,7 @@ header {
    color: var(--foreground);
 }
 
-#search-input:focus {
+.search-input:focus {
    background-color: var(--focus);
    outline: transparent;
 }

@@ -32,7 +32,7 @@
    <header>
       <div class="header-inner">
          <h1 id="brand-header">
-            <a href="#" data-route id="site-anchor" aria-label="Newser — Your everyday news source">
+            <a href="/" id="site-anchor" data-route aria-label="Newser — Your everyday news source">
                N
             </a>
          </h1>
@@ -43,11 +43,11 @@
                   This is how we'll implement routing behavior that overrides the default
                   browser's link behavior.
                -->
-               <a href="./bookmarks" data-route class="header-link">Bookmarks</a>
-               <a href="./saved" data-route class="header-link">Saved Searches</a>
+               <a href="/bookmarks" data-route class="header-link">Bookmarks</a>
+               <a href="/saved" data-route class="header-link">Saved Searches</a>
             </div>
-            <div id="search-control">
-               <input type="search" name="search" id="search-input" placeholder="Search">
+            <div class="search-control">
+               <input type="search" name="search" id="header-search-input" class="search-input" placeholder="Search">
                <button class="header-button" id="search-button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="c">
                      <path

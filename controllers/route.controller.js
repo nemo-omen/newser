@@ -1,14 +1,17 @@
 import { Home } from '../views/Home.js';
 import { Bookmarks } from '../views/Bookmarks.js';
 import { Saved } from '../views/Saved.js';
+import { dummyData } from '../model.js';
 
 const router = (function () {
+   // this is where everything renders!
    const outlet = document.querySelector('main');
 
+   // our pages
    const routes = {
-         home: async (options) => await Home(options),
-         bookmarks: (options) => Bookmarks(options),
-         saved: (options) => Saved(options)
+         home: Home(dummyData.articles),
+         bookmarks: Bookmarks(),
+         saved: Saved()
       };
 
 
@@ -40,21 +43,32 @@ const router = (function () {
     * @see: https://gomakethings.com/how-to-update-a-url-without-reloading-the-page-using-vanilla-javascript/
     */
    const setState = function (href) {
-      const pathId = getLastSegment(getPath(href))[0];
+      const pathId = getLastSegment(getPath(href));
       const title = pathId.charAt(0).toUpperCase() + pathId.slice(1);
       history.pushState({id: pathId}, `Newser | ${title}`, href);
    };
 
-   const loadPage = async function (href, options) {
+   const loadPage = function (href) {
+      // get the last bit of text after the final '/'
       let pathSegment = getLastSegment(getPath(href));
 
+      // if pathSegment is empty, it means we're at the root
+      // so just assign 'home'
       if (pathSegment === '') {
          pathSegment = 'home';
       }
 
-      outlet.innerHTML = await routes[pathSegment](options);
+      // reflect location in location bar
+      setState(href);
+
+      // clear outlet html
+      outlet.innerHTML = '';
+      // load HTML for the page
+      // outlet.innerHTML = routes[pathSegment];
+      outlet.appendChild(routes[pathSegment]);
    };
 
+   // we're only making the loadPage fn public
    return Object.freeze({
       loadPage
    });

@@ -3,14 +3,14 @@ import { config } from '../config.js'
 
 
 const ArticleModel = (function () {
-   // const articleCache = {
-   //    'Elon Musk': [...dummyData.articles],
-   // };
 
    /**
     * @typedef {Object} {term:string, cache:Article[]}
     */
-   const articleCache = {};
+   const articleCache = {
+      // just holding dummy data here
+      'Elon Musk': [...dummyData.articles],
+   };
 
    const getArticles = function (term) {
       // keep using dummy data for now so we don't
@@ -20,13 +20,18 @@ const ArticleModel = (function () {
 
    // receive a search term
    return function (term) {
-      // check the cackhe for that term, that way we can load fast
-      // during the current 'session'
-      if (!articleCache.hasOwnProperty(term)) {
-         articleCache[term] = getArticles(term);
+      // double-check for term
+      if (typeof term === 'string') {
+         // check the cache for that term, that way we can
+         // load quickly during the current 'session'
+         if (!articleCache.hasOwnProperty(term)) {
+            articleCache[term] = getArticles(term);
+         }
+         console.log(articleCache[term]);
+         return articleCache[term];
+      } else {
+         return [];
       }
-
-      return articleCache[term];
    };
 }());
 
