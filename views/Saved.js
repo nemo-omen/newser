@@ -1,5 +1,7 @@
+import { buildTemplate } from './buildTemplate.js';
+
 const Saved = function (terms) {
-   return `<h2>Saved</h2>`;
+   return buildTemplate(`<h2>Saved</h2>`);
 }
 
 export { Saved };

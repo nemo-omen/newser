@@ -9,7 +9,7 @@ const router = (function () {
 
    // our pages
    const routes = {
-         home: Home(dummyData.articles),
+         home: Home(),
          bookmarks: Bookmarks(),
          saved: Saved()
       };
