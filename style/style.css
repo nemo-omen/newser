@@ -94,6 +94,10 @@ button:focus {
    align-items: center;
 }
 
+.bookmarked {
+   color: var(--hover);
+}
+
 .button svg,
 a svg {
    transition: fill 0.15s ease-out;
@@ -254,7 +258,7 @@ footer {
 }
 
 .article-header {
-   background: linear-gradient(180deg, transparent 10%, var(--dark-1));
+   background: linear-gradient(180deg, transparent 0%, var(--dark-1) 70%);
 }
 
 .article-footer {

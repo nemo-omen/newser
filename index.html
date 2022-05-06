@@ -6,11 +6,12 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Newser | Your everyday news source</title>
-   <!-- 
-      I'm using type="module" here to gain the benefits of ES Modules:
-      1. Deferred until content is loaded by default
-      2. Strict mode by default
-      3. It's nice to split code into different files according to functionality!
+
+   <!--
+      Using ES Modules here so I can keep the main script.js file
+      more manageable. I'm hewing as closely as possible to the preferred
+      code organization for the class, but the UI templates take up quite a bit of
+      room. Splitting them into their own modules helps to retain some sanity.
    -->
    <script src="./script.js" type="module"></script>
 
@@ -32,7 +33,7 @@
    <header>
       <div class="header-inner">
          <h1 id="brand-header">
-            <a href="/" id="site-anchor" data-route aria-label="Newser — Your everyday news source">
+            <a href="/" id="site-anchor" aria-label="Newser — Your everyday news source">
                N
             </a>
          </h1>
@@ -43,11 +44,11 @@
                   This is how we'll implement routing behavior that overrides the default
                   browser's link behavior.
                -->
-               <a href="/bookmarks" data-route class="header-link">Bookmarks</a>
-               <a href="/saved" data-route class="header-link">Saved Searches</a>
+               <button class="header-button" id="bookmarks-button">Bookmarks</button>
+               <!-- <button class="header-button" id="saved-button">Saved Searches</button> -->
             </div>
             <div class="search-control">
-               <input type="search" name="search" id="header-search-input" class="search-input" placeholder="Search">
+               <input type="search" name="search" id="header-input" class="search-input" placeholder="Search">
                <button class="header-button" id="search-button">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="c">
                      <path
