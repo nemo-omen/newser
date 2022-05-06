@@ -22,10 +22,10 @@ const Default = function () {
   return buildView(templateHTML);
 };
 
-const SearchError = function (message) {
+const SearchError = function () {
   const templateHTML = `
   <div class="body-search">
-    <h2>There was an error getting your news: ${message}</h2>
+    <h2>There was an error getting your news.</h2>
   </div>
   `;
   return buildView(templateHTML);
@@ -34,7 +34,7 @@ const SearchError = function (message) {
 const SearchEmpty = function (options) {
   const templateHTML = `
   <div class="body-search">
-    <h2>There were no results for ${options.term}</h2>
+    <h2>There were no results.</h2>
   </div>`;
 
   return buildView(templateHTML);
